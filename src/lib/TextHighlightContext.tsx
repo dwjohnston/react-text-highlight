@@ -191,6 +191,8 @@ function recalculatePositions(mapOfSpansAndComments: Map<HTMLSpanElement, HTMLDi
             const requiredBasis = Math.max(requiredOffset + commentHeight, 0);
 
             comment.parentElement.style.flexBasis = `${requiredBasis}px`;
+            // Make comment visible after positioning
+            comment.parentElement.style.visibility = 'visible';
             accumulatedOffset += (Math.max(requiredBasis, commentHeight));
 
         }
@@ -346,6 +348,7 @@ export function TextHighlight(props: PropsWithChildren<TextHighlightProps>) {
                             display: 'flex',
                             flexDirection: 'column',
                             justifyContent: "flex-end",
+                            visibility: 'hidden',
                         }}>
                             {comment}
 
